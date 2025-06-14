@@ -1,0 +1,911 @@
+/* TRANG INDEX.PHP  */
+/* Màu sắc chủ đạo tương tự hình mẫu */
+:root {
+    --primary-bg-color: #2c3e50; /* Màu nền navbar và các phần tử tối */
+    --secondary-bg-color: #f8f9fa; /* Màu nền sáng */
+    --text-color-light: #ffffff;
+    --text-color-dark: #343a40;
+    --btn-primary-bg: #007bff; /* Màu nút chính */
+    --btn-primary-hover-bg: #476481;
+    --thirth-bg-color: #243342;
+    --fourth-bg-color: #4273a4;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Hoặc font chữ bạn dùng trong Figma */
+    line-height: 1.6;
+    background-color: var(--primary-bg-color);
+    color: var(--text-color-dark);
+}
+
+/* Navbar styles ------------------------------------------------------*/
+.navbar {
+    background-color: var(--primary-bg-color) !important;
+    padding: 10px 0px 0px 10px;
+}
+
+.navbar-nav .nav-link {
+    color: var(--text-color-light) !important;
+    font-size: 23px;
+    font-weight: 500;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #8bc5ff!important; 
+}
+
+.nav-item a:hover {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Điều chỉnh vị trí của đường gạch dưới */
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #00ff00; /* Màu xanh lá cây */
+    transition: width 0.3s ease;
+}
+
+.navbar .form-control {
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-color-light);
+}
+
+.navbar .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+
+/* Main Carousel/Slider -----------------------------------------------*/
+.main-carousel {
+    background-color: var(--primary-bg-color); /* Màu nền của slider theo hình mẫu */
+    padding: 30px 0; /* Khoảng cách trên dưới cho slider */
+}
+
+/* Thiết lập chiều cao cố định cho mỗi slide của carousel */
+.carousel-item {
+    height: 300px; /* <--- Đặt một chiều cao cố định (ví dụ: 500px, 40vh,...) */
+    background-color: #2c3e50; /* Màu nền cho các khoảng trống nếu ảnh không lấp đầy */
+    display: none;  
+    /*Sử dụng flexbox để căn giữa ảnh*/
+    align-items: center; /* Căn giữa ảnh theo chiều dọc */
+    justify-content: center; /* Căn giữa ảnh theo chiều ngang */
+    overflow: hidden; /* Quan trọng: ẩn đi phần ảnh thừa nếu object-fit là cover */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 50px; /* Điều chỉnh vị trí nút "Học ngay ngay" */
+    left: 10%; /* Điều chỉnh vị trí nút "Học ngay ngay" */
+    right: auto;
+    text-align: left;
+    padding: 0;
+}
+
+.custom-carousel-button {
+    background-color: #007bff; /* Màu nút "Học ngay ngay" */
+    border-color: #007bff;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.custom-carousel-button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Carousel controls (mũi tên trái/phải) */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%; /* Điều chỉnh độ rộng vùng click của mũi tên */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(255, 255, 255, 0.5); /* Màu nền của icon mũi tên */
+    border-radius: 50%;
+    padding: 20px; /* Kích thước của icon */
+}
+
+/* Card Course Styles (phần các khóa học nổi bật) */
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+
+/* Footer (nếu bạn có footer) */
+.footer {
+    background-color: var(--primary-bg-color);
+    color: var(--text-color-light);
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* ----------------------------------------- */
+/* CSS CHO TRANG KHÓA HỌC */
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+
+/* ------------------------------------------------------------------- */
+/* CSS CHO TRANG DIỄN ĐÀN */
+/* TRANG FORUM.PHP */
+.sidebar-forum {
+    background-color: #243342; /* Màu nền sidebar đậm hơn primary-bg-color */
+    padding: 20px 0;
+    min-height: calc(100vh - 80px); /* Đảm bảo sidebar kéo dài hết chiều cao (trừ header/footer) */
+    position: sticky; /* Giữ sidebar cố định khi cuộn */
+    top: 0; /* Căn trên cùng */
+    left: 0;
+     /* Đảm bảo nó nằm trên các nội dung khác */
+}
+
+.sidebar-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60px; /* Kích thước icon */
+    height: 60px;
+    border-radius: 10px; /* Bo tròn góc */
+    background-color: transparent;
+    color: var(--text-color-light); /* Màu icon */
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Bỏ gạch chân */
+    position: relative; /* Để định vị overlay */
+}
+
+.sidebar-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #007bff; /* Màu xanh khi hover */
+}
+
+.sidebar-icon.active {
+    background-color: var(--btn-primary-bg); /* Màu xanh cho icon active */
+    color: var(--text-color-light);
+}
+
+.sidebar-icon.active i {
+    filter: invert(1); /* Đảo màu icon nếu cần (tùy thuộc vào icon) */
+}
+
+.chat-overlay {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 10px); /* Cách icon 10px */
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--text-color-light);
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar-icon:hover .chat-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.forum-content {
+    background-color: var(--primary-bg-color); /* Màu nền giống navbar */
+    color: var(--text-color-light);
+    padding-left: 30px; /* Khoảng cách với sidebar */
+}
+
+.forum-search-main {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-color-light);
+    border-radius: 20px;
+}
+
+.forum-search-main::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.forum-posts-list .card {
+    background-color: #243342; /* Màu nền card bài đăng */
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+}
+
+.forum-posts-list .card:hover {
+    transform: translateY(-3px);
+}
+
+.forum-posts-list .card-title {
+    color: var(--text-color-light);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.forum-posts-list .card-text.text-muted {
+    color: rgba(255, 255, 255, 0.7) !important; /* Màu chữ mô tả */
+}
+
+.forum-post-card .post-meta {
+    min-width: 120px; /* Đảm bảo khoảng cách cố định cho meta data */
+}
+
+.forum-post-card .post-meta small,
+.forum-post-card .post-meta span {
+    font-size: 0.85rem;
+}
+
+.forum-detail-btn {
+    border-radius: 20px; /* Bo tròn nút chi tiết */
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    color: #007bff; /* Màu chữ xanh */
+    border-color: #007bff; /* Màu viền xanh */
+}
+
+.forum-detail-btn:hover {
+    background-color: #007bff;
+    color: var(--text-color-light);
+}
+
+/* Pagination trong forum */
+.pagination .page-link {
+    background-color: #243342;
+    color: var(--text-color-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--btn-primary-bg);
+    border-color: var(--btn-primary-bg);
+    color: var(--text-color-light);
+}
+
+.pagination .page-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #007bff;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: rgba(255, 255, 255, 0.5);
+    background-color: #243342;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* CSS CHO TRANG TIN TỨC -----------------------------------------------*/
+.news-posts-list .card {
+    background-color: #243342; /* Màu nền card tin tức tương tự diễn đàn */
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+    padding-top: 15px; /* Thêm padding trên để thời gian không sát cạnh */
+}
+
+.news-posts-list .card:hover {
+    transform: translateY(-3px);
+}
+
+.news-posts-list .card-body {
+    padding: 1.5rem; /* Tăng padding tổng thể cho card body */
+}
+
+.news-posts-list .news-time-date {
+    font-size: 0.8rem; /* Kích thước chữ cho thời gian */
+    color: rgba(255, 255, 255, 0.6) !important; /* Màu chữ nhạt hơn */
+    margin-bottom: 0.75rem !important; /* Khoảng cách dưới thời gian */
+}
+
+.news-posts-list .card-title {
+    color: var(--text-color-light);
+    font-weight: bold;
+    font-size: 1.3rem; /* Kích thước tiêu đề lớn hơn */
+    margin-bottom: 0.75rem;
+}
+
+.news-posts-list .card-text.text-muted {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 1rem;
+    margin-bottom: 1.5rem; /* Khoảng cách dưới mô tả */
+}
+
+.news-detail-btn {
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    color: #007bff;
+    border-color: #007bff;
+}
+
+.news-detail-btn:hover {
+    background-color: #007bff;
+    color: var(--text-color-light);
+}
+
+/* Pagination trong news (có thể dùng chung với forum nếu style giống nhau) */
+/* (Nếu đã có trong style.css từ phần forum, bạn không cần thêm lại) */
+.pagination .page-link {
+    background-color: #243342;
+    color: var(--text-color-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--btn-primary-bg);
+    border-color: var(--btn-primary-bg);
+    color: var(--text-color-light);
+}
+
+.pagination .page-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #007bff;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: rgba(255, 255, 255, 0.5);
+    background-color: #243342;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* CSS TRANG FOOTER -----------------------------------------------------*/
+.footer {
+    background-color: #243342; /* Màu nền footer đậm hơn primary-bg-color */
+    color: var(--text-color-light); /* Màu chữ mặc định cho footer */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Đường viền mỏng ở trên */
+}
+
+.footer h5 {
+    font-weight: bold;
+    color: var(--text-color-light); /* Đảm bảo tiêu đề cột là màu trắng */
+}
+
+.footer p, .footer li {
+    font-size: 0.9rem;
+    color: var(--text-color-light); /* Đảm bảo màu chữ hiển thị */
+}
+
+.footer .text-white-50 {
+    color: rgba(255, 255, 255, 0.7) !important; /* Tăng độ sáng cho text-white-50 */
+}
+
+.footer-link, .footer-link-policy {
+    color: rgba(255, 255, 255, 0.7) !important; /* Màu mặc định cho link */
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover, .footer-link-policy:hover {
+    color: #007bff !important; /* Màu xanh khi hover */
+}
+
+.footer .list-unstyled li {
+    margin-bottom: 8px; /* Khoảng cách giữa các mục trong list */
+}
+
+.footer .list-unstyled li:last-child {
+    margin-bottom: 0;
+}
+
+.footer .list-unstyled li i {
+    width: 20px; /* Đảm bảo icon căn chỉnh đẹp */
+    text-align: center;
+}
+
+.footer .social-icons .fab {
+    font-size: 1.5rem; /* Kích thước icon mạng xã hội lớn hơn */
+    color: rgba(255, 255, 255, 0.7); /* Màu mặc định cho icon */
+    transition: color 0.3s ease;
+}
+
+.footer .social-icons .fab:hover {
+    color: #007bff !important; /* Màu xanh khi hover */
+}
+
+.footer hr.border-white-50 {
+    border-color: rgba(255, 255, 255, 0.2) !important; /* Màu đường kẻ phân cách */
+}
+
+/* Đảm bảo footer luôn ở cuối trang, ngay cả khi nội dung ít (giữ nguyên từ trước) */
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex-grow: 1; /* Đẩy main giãn nở, đẩy footer xuống cuối */
+}
+
+/* TRANG COURSE_DETAIL.PHP ----------------------------------------------------*/
+/* COURSE_DETAIL.PHP - Cập nhật Sidebar Toggle */
+
+/* Đặt position: relative cho main để sidebar-toggle có thể position: absolute */
+.course-detail-main {
+    display: flex;
+    min-height: calc(100vh - 80px);
+    position: relative; /* Thêm dòng này! */
+}
+
+/* Sidebar */
+.course-sidebar {
+    background-color: #243342;
+    width: 30%;
+    flex-shrink: 0;
+    transition: width 0.3s ease, transform 0.3s ease;
+    /* Loại bỏ position: relative; và right: 0; transform: translate(50%, -50%); ở đây */
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.course-sidebar.collapsed {
+    width: 30px; /* Chiều rộng khi sidebar thu gọn */
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.course-sidebar.collapsed .sidebar-content {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.1s ease, visibility 0.1s ease;
+}
+
+.course-sidebar .sidebar-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+/* Sidebar Toggle Button (nút tam giác) */
+.sidebar-toggle {
+    position: absolute;
+    top: 50%;
+    /* Thay đổi giá trị left ban đầu tại đây */
+    left: 30px; /* Vị trí ban đầu: Bằng chiều rộng của sidebar khi đã collapsed (30px) */
+    transform: translate(-50%, -50%);
+    background-color: var(--thirth-bg-color);
+    border: none;
+    border-radius: 25%;
+    width: 35px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.2); */
+    transition: background-color 0.2s ease, transform 0.3s ease, left 0.3s ease;
+    color: var(--text-color-light);
+}
+
+
+.sidebar-toggle .toggle-icon {
+    transition: transform 0.3s ease;
+    font-size: 2.9rem;
+    color: #6c757d;
+    transition: color 0.2s ease, transform 0.3s ease;
+}
+
+.sidebar-toggle .toggle-icon:hover {
+    color: #ffffff;
+}
+
+
+/* Completion Circle (Phần trăm hoàn thành) */
+.completion-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #3b4e60; /* Màu nền của vòng tròn */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto; /* Căn giữa và khoảng cách dưới */
+    border: 3px solid #007bff; /* Viền xanh */
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-color-light);
+}
+
+/* Lesson List */
+.course-lesson-list {
+    margin-bottom: auto; /* Đẩy nút "Trở về" xuống cuối */
+}
+
+.course-lesson-list .lesson-item {
+    display: block; /* Để link chiếm toàn bộ chiều rộng */
+    padding: 8px 10px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 5px;
+    white-space: nowrap; /* Ngăn chữ bị xuống dòng khi sidebar nhỏ */
+}
+
+.course-lesson-list .lesson-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color-light);
+}
+
+.course-lesson-list .lesson-item.active {
+    background-color: rgba(0, 123, 255, 0.3); /* Màu nền xanh nhạt cho bài học đang chọn */
+    color: var(--text-color-light);
+    font-weight: bold;
+}
+
+/* Back to Courses Button */
+.back-to-courses .btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.back-to-courses .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color-light);
+}
+
+/* Course Content Area */
+.course-content {
+    background-color: var(--primary-bg-color); /* Màu nền nội dung */
+    color: var(--text-color-light);
+    overflow-y: auto; /* Cho phép cuộn nếu nội dung dài */
+    padding: 30px !important; /* Đảm bảo padding lớn */
+}
+
+.course-content h2, .course-content h3 {
+    color: var(--text-color-light);
+}
+
+.course-text-block {
+    background-color: #2e3b4d; /* Màu nền cho khối văn bản */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.course-text-block p {
+    color: rgba(255, 255, 255, 0.8); /* Màu chữ trong khối văn bản */
+    line-height: 1.8;
+}
+
+/* Progress Bar */
+.progress {
+    background-color: #3b4e60; /* Màu nền của thanh tiến độ */
+    border-radius: 5px;
+}
+
+.progress-bar {
+    background-color: var(--fourth-bg-color)/* thanh của thanh tiến độ */
+}
+
+/* Course Navigation Buttons */
+.course-nav-btn {
+border-radius: 20px;
+padding: 10px 25px;
+font-size: 1.3rem;
+background-color: var(--fourth-bg-color);
+/* border-color: var(--btn-primary-bg); */
+color: var(--text-color-light);
+transition: background-color 0.2s ease;
+}
+
+.course-nav-btn:hover {
+background-color: #8eaccc;
+}
+
+.diem-bai-hoc {
+font-size: 20px;
+color: #951f1f;
+font-weight: bolder ;
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* TRANG DIỄN ĐÀN */
+/* TRANG FORUM_DETAIL.PHP */
+.forum-detail-main {
+    color: var(--text-color-light);
+    position: relative; /* Cho phép nút trở về absolute */
+}
+
+.forum-post-heading {
+    color: var(--text-color-light);
+    font-weight: bold;
+    font-size: 2.2rem;
+}
+
+.forum-card {
+    background-color: #2e3b4d; /* Màu nền cho các khối bài đăng/bình luận */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.forum-avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border: 2px solid #007bff; /* Viền avatar */
+}
+
+/* Original Post */
+.original-post p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Comments Section */
+.forum-comments-section {
+    max-height: 500px; /* Chiều cao tối đa cho phần bình luận */
+    overflow-y: auto; /* Tạo thanh cuộn khi nội dung quá dài */
+    padding-right: 15px; /* Tạo không gian cho thanh cuộn */
+}
+
+/* Custom Scrollbar (cho trình duyệt WebKit - Chrome, Safari) */
+.forum-comments-section::-webkit-scrollbar {
+    width: 8px;
+}
+
+.forum-comments-section::-webkit-scrollbar-track {
+    background: #243342; /* Màu nền của track */
+    border-radius: 10px;
+}
+
+.forum-comments-section::-webkit-scrollbar-thumb {
+    background: #007bff; /* Màu của thanh cuộn */
+    border-radius: 10px;
+}
+
+.forum-comments-section::-webkit-scrollbar-thumb:hover {
+    background: #0056b3; /* Màu khi hover vào thanh cuộn */
+}
+
+
+.comment-item {
+    padding: 20px; /* Giảm padding một chút cho bình luận */
+}
+
+.comment-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Comment Form */
+.comment-form .form-control-dark {
+    background-color: #3b4e60; /* Màu nền input textarea */
+    color: var(--text-color-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    resize: vertical; /* Cho phép resize theo chiều dọc */
+}
+
+.comment-form .form-control-dark::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.comment-form .form-control-dark:focus {
+    background-color: #3b4e60;
+    color: var(--text-color-light);
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+.comment-form .btn-primary {
+    background-color: var(--btn-primary-bg);
+    border-color: var(--btn-primary-bg);
+    padding: 8px 25px;
+    font-size: 1rem;
+    border-radius: 20px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.comment-form .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0069d9;
+}
+
+/* Back to Forum Button */
+.btn-back-to-forum {
+    position: absolute;
+    bottom: 20px; /* Cách đáy 20px */
+    left: 20px; /* Cách lề trái 20px */
+    border-radius: 20px;
+    padding: 10px 25px;
+    font-size: 1rem;
+    border-color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-back-to-forum:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color-light);
+}
+
+/* ============================================================================================================================ */
+/* TRANG LOGIN.PHP */
+
+/* Đảm bảo body chiếm toàn bộ chiều cao viewport và có nền màu tối */
+.login-page-body {
+    background-color: var(--primary-bg-color); /* Sử dụng màu nền chính của bạn */
+    min-height: 100vh; /* Đảm bảo body chiếm ít nhất toàn bộ chiều cao của viewport */
+    display: flex; /* Dùng flexbox để căn giữa nội dung main */
+    flex-direction: column;
+}
+
+/* Căn giữa form đăng nhập theo chiều ngang và dọc */
+.login-main {
+    flex-grow: 1; /* Cho phép main giãn nở để chiếm hết không gian còn lại */
+    /* d-flex, justify-content-center, align-items-center, min-vh-100 đã xử lý việc căn giữa */
+}
+
+/* Container của form đăng nhập */
+.login-container {
+    background-color: #D9D9D9; /* Màu nền sáng cho form (ví dụ: lightgray) */
+    width: 100%;
+    max-width: 400px; /* Giới hạn chiều rộng của form */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Đổ bóng nhẹ */
+    /* p-5, rounded-3 đã được thêm vào trực tiếp trong HTML với Bootstrap classes */
+}
+
+/* Input fields */
+.form-control-login {
+    background-color: var(--input-bg-color); /* Màu nền cho input (ví dụ: #f0f0f0) */
+    border: 1px solid var(--border-color); /* Viền input */
+    border-radius: 8px; /* Bo góc input */
+    padding: 12px 15px;
+    color: var(--text-color-dark); /* Màu chữ trong input */
+    font-size: 1rem;
+}
+
+.form-control-login::placeholder {
+    color: var(--placeholder-color); /* Màu chữ placeholder (ví dụ: #999) */
+}
+
+.form-control-login:focus {
+    background-color: var(--input-bg-color-focus); /* Màu nền khi focus */
+    border-color: var(--primary-color); /* Màu viền khi focus */
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); /* Tùy chỉnh màu shadow của focus */
+    color: var(--text-color-dark);
+}
+
+/* Nút Đăng nhập */
+.btn-login-submit {
+    background-color: var(--btn-primary-bg); /* Màu nền nút chính */
+    border-color: var(--btn-primary-bg);
+    color: var(--text-color-light);
+    padding: 10px 20px;
+    border-radius: 25px; /* Bo tròn nút */
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-login-submit:hover {
+    background-color: #0056b3; /* Màu khi hover */
+    border-color: #0056b3;
+}
+
+/* Liên kết Đăng ký ngay */
+.login-container .text-secondary {
+    color: var(--link-color) !important; /* Màu cho link đăng ký */
+    transition: color 0.2s ease;
+}
+
+.login-container .text-secondary:hover {
+    color: var(--link-hover-color) !important; /* Màu khi hover link đăng ký */
+}
+
+/* Cập nhật biến CSS nếu chưa có trong style.php hoặc style.css của bạn */
+:root {
+    --primary-bg-color: #243342; /* Màu nền chính (dark blue) */
+    --card-bg-color: #e0e0e0; /* Màu nền cho form đăng nhập (light gray) */
+    --input-bg-color: #f8f9fa; /* Màu nền cho input fields */
+    --input-bg-color-focus: #ffffff; /* Màu nền input khi focus */
+    --border-color: #ced4da; /* Màu viền mặc định */
+    --primary-color: #007bff; /* Màu xanh của Bootstrap primary */
+    --text-color-dark: #343a40; /* Màu chữ tối (cho form) */
+    --placeholder-color: #6c757d; /* Màu chữ placeholder */
+    --link-color: #6c757d; /* Màu link mặc định */
+    --link-hover-color: #495057; /* Màu link khi hover */
+    /* ... các biến khác của bạn ... */
+}
+
+/* ========================================================================================= */
+/* css cho chữ trên bg */
+.text-white-stroke-black {
+    color: white; /* Màu chữ */
+    text-shadow:
+        -1px -1px 0 #000, /* Bóng đổ trên-trái */
+         1px -1px 0 #000, /* Bóng đổ trên-phải */
+        -1px  1px 0 #000, /* Bóng đổ dưới-trái */
+         1px  1px 0 #000; /* Bóng đổ dưới-phải */
+    /* Các giá trị -1px và 1px là độ dày của viền. Bạn có thể điều chỉnh để viền dày hơn */
+}
